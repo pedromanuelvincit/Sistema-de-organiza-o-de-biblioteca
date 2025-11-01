@@ -5,7 +5,7 @@ import shutil
 def exibir_menu():
     print("\n=== Sistema de Gerenciamento ===")
     print("1. Listar documentos digitais")
-    print("2. Adicionar")
+    print("2. Adicionar item")
     print("3. Buscar item")
     print("4. Atualizar item")
     print("5. Remover item")
@@ -46,14 +46,12 @@ def main():
                 print(str(ano) + ":")
                 for a in sorted(arquivos_por_data[ano]):
                     print("  " + a)
-# Função para copiar arquivo para o diretorio da biblioteca.
-def adicionar_documento():
-    src = input('Digite aqui o nome do caminho atéo arquivo de origem: ').strip()
-    nome_destino = input('Digite aqui o nome do destino ou (ENTER para manter o nome): ').strip()
-    if not nome_destino:
-        nome_destino = os.path.basename(src)
-    dst = os.path.join('biblioteca digital', nome_destino)
-    shutil.copyfile(src, dst)
-    print(f"Arquivo copiado para: {dst}")
+        elif opcao == "2":
+            print("\nAdicionar item...")
+            origem = input("Caminho do arquivo: ")
+            nome_arquivo = os.path.basename(origem)
+            destino = os.path.join('biblioteca digital', nome_arquivo)
+            shutil.copyfile(origem, destino)
+            print("Arquivo copiado!")
 if __name__ == "__main__":
     main()
