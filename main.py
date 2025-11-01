@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+import shutil
 # Função para exibir o menu do programa
 def exibir_menu():
     print("\n=== Sistema de Gerenciamento ===")
@@ -45,5 +46,14 @@ def main():
                 print(str(ano) + ":")
                 for a in sorted(arquivos_por_data[ano]):
                     print("  " + a)
+# Função para copiar arquivo para o diretorio da biblioteca.
+def adicionar_documento():
+    src = input('Digite aqui o nome do caminho atéo arquivo de origem: ').strip()
+    nome_destino = input('Digite aqui o nome do destino ou (ENTER para manter o nome): ').strip()
+    if not nome_destino:
+        nome_destino = os.path.basename(src)
+    dst = os.path.join('biblioteca digital', nome_destino)
+    shutil.copyfile(src, dst)
+    print(f"Arquivo copiado para: {dst}")
 if __name__ == "__main__":
     main()
