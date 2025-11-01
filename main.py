@@ -62,5 +62,12 @@ def main():
             caminho_novo = os.path.join('biblioteca digital', novo_nome)
             os.rename(caminho_atual, caminho_novo)
             print("Arquivo renomeado!")
+        # Opção de remover um item do diretorio biblioteca digital
+        elif opcao == "4":
+            print("\nRemover item...")
+            arquivo = input("Nome do arquivo para remover: ")
+            caminho_arquivo = os.path.join('biblioteca digital', arquivo)
+            os.remove(caminho_arquivo)
+            print("Arquivo removido!")
 if __name__ == "__main__":
     main()
