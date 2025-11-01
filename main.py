@@ -6,9 +6,8 @@ def exibir_menu():
     print("\n=== Sistema de Gerenciamento ===")
     print("1. Listar documentos digitais")
     print("2. Adicionar item")
-    print("3. Buscar item")
-    print("4. Atualizar item")
-    print("5. Remover item")
+    print("3. Renomear item")
+    print("4. Remover item")
     print("0. Sair")
     print("============================")
 # Logica do programa, aqui executa uma tarefa com base na solicitação feita pelo usuário
@@ -46,6 +45,7 @@ def main():
                 print(str(ano) + ":")
                 for a in sorted(arquivos_por_data[ano]):
                     print("  " + a)
+        # Opção para adicionar um item ao diretorio biblioteca digital
         elif opcao == "2":
             print("\nAdicionar item...")
             origem = input("Caminho do arquivo: ")
@@ -53,5 +53,14 @@ def main():
             destino = os.path.join('biblioteca digital', nome_arquivo)
             shutil.copyfile(origem, destino)
             print("Arquivo copiado!")
+        # Opção para Renomear um item da biblioteca digital
+        elif opcao == "3":
+            print("\nRenomear item...")
+            arquivo_atual = input("Nome do arquivo para renomear: ")
+            novo_nome = input("Novo nome: ")
+            caminho_atual = os.path.join('biblioteca digital', arquivo_atual)
+            caminho_novo = os.path.join('biblioteca digital', novo_nome)
+            os.rename(caminho_atual, caminho_novo)
+            print("Arquivo renomeado!")
 if __name__ == "__main__":
     main()
