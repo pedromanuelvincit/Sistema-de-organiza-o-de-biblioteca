@@ -69,5 +69,14 @@ def main():
             caminho_arquivo = os.path.join('biblioteca digital', arquivo)
             os.remove(caminho_arquivo)
             print("Arquivo removido!")
+# Opção para sair do sistema
+        elif opcao == "0":
+            print("\nSaindo do sistema...")
+            break
+        # Caso a opção seja invalida exibir esse bloco de código
+        else:
+            print("\nOpção inválida!")
+
+        input("\nPressione ENTER para continuar...")
 if __name__ == "__main__":
     main()
